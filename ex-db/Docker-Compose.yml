@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   app:
     container_name: app
@@ -9,8 +9,16 @@ services:
       MONGODB_URI: mongodb://mongo:27017/mydatabase
     depends_on:
       - mongo
+    networks:
+      - mongo-network
   mongo:
     container_name: mongo
     image: mongo
     ports:
       - '27017:27017'
+    networks:
+      - mongo-network
+
+networks:
+      mongo-network:
+        driver: bridge
