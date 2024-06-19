@@ -193,19 +193,19 @@ export default function Detail({params}){
                 </div>
 
                 <div className=" bg-white w-[90%] p-3 rounded-lg mt-[20px]">
-                    <h1>Product Specifications</h1>
-                    <p>
-                        stock : {product.inventory_quantity}
+                    <h1 className=" font-extrabold">Product Specifications</h1>
+                    <p className=" font-bold">
+                        stock <span className=" text-red-600">:</span> <span className=" font-normal">{product.inventory_quantity}</span>
                     </p>
-                    <p>
-                        catagory : {product.category_name}
+                    <p className=" font-bold">
+                        catagory <span className=" text-red-600">:</span> <span className=" font-normal">{product.category_name}</span>
                     </p>
-                    <p>product rating : {product.ratings}</p>
+                    <p className=" font-bold">product rating <span className=" text-red-600">:</span> <span className=" font-normal">{product.ratings}</span></p>
                     <br/>
                     <hr/>
                     <br/>
-                    <h1>Product Description</h1>
-                    <p>
+                    <h1 className=" font-extrabold">Product Description</h1>
+                    <p className=" font-normal">
                         {product.description}
                     </p>
                 </div>
