@@ -15,10 +15,19 @@ const receipts = require('./routes/receipts');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb+srv://bunderscorest:1234@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log('connection successfully!'))
-  .catch((err) => console.log(err))
+// mongoose.connect('mongodb+srv://bunderscorest:SgSArKIigmxUNA8k@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+//   .then(() => console.log('connection successfully!'))
+//   .catch((err) => console.log(err))
 
+
+
+const mongoUri = process.env.MONGODB_URI;
+
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('Failed to connect to MongoDB', err));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
