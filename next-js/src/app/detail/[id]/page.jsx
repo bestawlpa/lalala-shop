@@ -192,7 +192,7 @@ export default function Detail({params}){
                     </div>
                 </div>
 
-                <div className=" bg-white w-[90%] p-3 rounded-lg mt-[20px]">
+                <div className=" bg-white w-[90%] p-3 rounded-lg mt-[40px]">
                     <h1 className=" font-extrabold">Product Specifications</h1>
                     <p className=" font-bold">
                         stock <span className=" text-red-600">:</span> <span className=" font-normal">{product.inventory_quantity}</span>

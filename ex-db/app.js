@@ -15,7 +15,7 @@ const receipts = require('./routes/receipts');
 
 mongoose.Promise = global.Promise;
 
-// mongoose.connect('mongodb+srv://bunderscorest:SgSArKIigmxUNA8k@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+// mongoose.connect('mongodb+srv://bunderscorest:PblVhsvFERGzJIED@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 //   .then(() => console.log('connection successfully!'))
 //   .catch((err) => console.log(err))
 
