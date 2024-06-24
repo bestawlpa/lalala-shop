@@ -6,7 +6,7 @@ services:
     ports:
     - '3000:3000'
     environment:
-      MONGODB_URI: mongodb+srv://bunderscorest:SgSArKIigmxUNA8k@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      MONGODB_URI: mongodb+srv://bunderscorest:fKlnxjGtMnwekE0b@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
     depends_on:
       - mongo
     networks:
