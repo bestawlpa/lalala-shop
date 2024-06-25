@@ -99,9 +99,9 @@ export default function AdminToShip() {
                         <div>
                             {item.Checkout.map((ch) => (
                                 <div className=" mt-3">
-                                    <div key={ch._id}>
+                                    <div key={ch._id} className=" font-bold">
                                         <p>Order: {ch._id}</p>
-                                        <p>Total: {ch.total}</p>
+                                        <p className=" text-red-600">Total: <span className=" text-black">{ch.total}</span></p>
                                     </div>
                                     
                                 </div>
@@ -110,7 +110,7 @@ export default function AdminToShip() {
                         </div>
 
                         {item.Checkout.map((ch) => (
-                            <div key={`${ch._id}-button`} className="w-[80px] h-full  flex items-center justify-center bg-white border-l-2 border-red-300">
+                            <div key={`${ch._id}-button`} className="w-[80px] h-full  flex items-center justify-center bg-white ">
                                 <button onClick={() => handleApprove(ch._id, item._id)} className=" w-[70px] h-[30px] bg-red-500 px-2 py-1  text-black rounded flex justify-center items-center">Approve</button>
                             </div>
                         ))}
