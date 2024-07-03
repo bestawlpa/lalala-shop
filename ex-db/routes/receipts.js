@@ -2,14 +2,12 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const Receipt = require('../models/Receipt');
-// const Checkout = require('../models/Checkout');
-// const Product = require('../models/Product');
-// const User = require('../models/User'); // ตรวจสอบให้แน่ใจว่าคุณมีโมเดลเหล่านี้
+
 const fs = require('fs');
 const path = require('path');
 
 
-// เปลี่ยนเส้นทางไปยังโฟลเดอร์ในโปรเจค Next.js
+
 const uploadDir = path.join(__dirname, '../../next-js/public/uploads');
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
@@ -26,7 +24,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// ดึงข้อมูลทั้งหมดของ receipts พร้อมข้อมูล checkout, product และ user
+
 router.get('/', (req, res, next) => {
     Receipt.find()
         .populate({
@@ -54,15 +52,15 @@ router.get('/:id', (req,res,next) => {
         })
 });
 
-// อัพโหลด receipt
+
 router.post('/upload', upload.single('image'), (req, res, next) => {
     try {
         const { order } = req.body;
         const parsedOrder = JSON.parse(order);
 
         const receipt = new Receipt({
-            Checkout: parsedOrder, // สมมติว่า parsedOrder เป็น array ของ ObjectId ของ Checkout
-            receiptImageUrl: path.join('uploads', req.file.filename) // ปรับเส้นทางให้ถูกต้อง
+            Checkout: parsedOrder, 
+            receiptImageUrl: path.join('uploads', req.file.filename) 
         });
 
         receipt.save()

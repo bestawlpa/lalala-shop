@@ -5,7 +5,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
     User.find()
       .then(user => {
