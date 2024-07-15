@@ -88,26 +88,3 @@ module.exports = router;
 
 
 
-// router.put('/:id', (req, res, next) => {
-//     const newStatus = req.body.status;
-
-//     // Validate the new status
-//     if (!['Pending', 'Packaging' , 'Shipped'].includes(newStatus)) {
-//         return res.status(400).json({ error: 'Invalid status' });
-//     }
-
-//     Checkout.findByIdAndUpdate(
-//         req.params.id,
-//         { status: newStatus, updated_at: Date.now() },
-//         { new: true }
-//     )
-//     .then(checkout => {
-//         if (!checkout) {
-//             return res.status(404).json({ error: 'Checkout not found' });
-//         }
-//         res.json(checkout);
-//     })
-//     .catch(err => {
-//         next(err);
-//     });
-// });

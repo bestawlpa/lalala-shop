@@ -15,19 +15,19 @@ const receipts = require('./routes/receipts');
 
 mongoose.Promise = global.Promise;
 
-// mongoose.connect('mongodb+srv://bunderscorest:eH3xKMZXsRVsZPWc@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-//   .then(() => console.log('connection successfully!'))
-//   .catch((err) => console.log(err))
+mongoose.connect('mongodb+srv://####:TdHPLjG3Y7a2gUGq@cluster0.vi5ia4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('connection successfully!'))
+  .catch((err) => console.log(err))
 
 
 
-const mongoUri = process.env.MONGODB_URI;
+// const mongoUri = process.env.MONGODB_URI;
 
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('Connected to MongoDB Atlas'))
-  .catch(err => console.error('Failed to connect to MongoDB', err));
+// mongoose.connect(mongoUri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }).then(() => console.log('Connected to MongoDB Atlas'))
+//   .catch(err => console.error('Failed to connect to MongoDB', err));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -46,17 +46,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
 });
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', products);
-app.use('/categories',categories);
+app.use('/categories', categories);
 app.use('/cartitems', cartitems);
 app.use('/users', users);
 app.use('/checkouts', checkouts);
@@ -65,12 +65,12 @@ app.use('/receipts', receipts);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
